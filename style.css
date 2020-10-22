@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: normal;
@@ -20,7 +24,7 @@ p {
 }
 
 h1 {
-  font-size: 3.2rem;
+  font-size: 3.35rem;
   font-weight: 200;
   text-align: center;
   margin-bottom: 0rem;
@@ -39,10 +43,12 @@ a {
   font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: bolder;
+  
 }
 
 a:hover {
   color: #bfbfbf;
+  transition: .3s;
 }
 
 footer {
@@ -69,12 +75,23 @@ footer {
   padding: 20px;
   display: grid;
   font-size: .7rem;
+  gap: .5rem;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas: 
   "header header header"
   "gig1 gig2 gig3"
    ;
+}
+
+.spotify {
+  background-color: #f2f2f2;
+  padding: 1rem;
+  width: 50%;
+  min-height: 20rem;
+  border-bottom: .5rem solid #0d0d0d;
+  max-width: 304px;
+  min-width: 244px;
 }
 
 
@@ -86,8 +103,11 @@ footer {
 
 .schedule-header {
   grid-area: header;
-  padding-bottom: 1rem;
+  padding: 1rem;
   text-align: left;
+  background-color: #BFBFBF;
+  align-self: center;
+  
 
 }
 
@@ -101,14 +121,42 @@ footer {
   grid-area: gig3;
 }
 
+.gig1 h4, h5, h6 {
+  background-color: white;
+  display: inline;
+  padding-left: .3rem;
+  padding-right: .3rem;
+  position: relative;
+  z-index: 2;
+
+ 
+  
+  
+
+
+} 
+h4, h5, h6 { 
+  margin-top: 0;
+  margin-right: .2rem;
+}
+.schedule img {
+  width: 100%;
+  z-index: 1;
+  position: relative;}
+
 .contact-text {
   padding: 20px;
   background-color: #f2f2f2;
   border-bottom: 0.5rem solid #0d0d0d;
+  width: 50%;
 
 }
 
 .img-small {
+  display: none;
+}
+
+.bild2 {
   display: none;
 }
 
@@ -125,7 +173,6 @@ footer {
 
 @media (min-width: 1360px) {
   #container {
-    box-sizing: border-box !important;
     width: 100%;
     max-width: 1600px!important;;
     margin: auto;
@@ -220,6 +267,8 @@ footer {
   a:hover {
     color: #bfbfbf;
     font-size: 2.1rem;
+    transition: .1s;
+
   }
 
   .about-text {
@@ -232,7 +281,7 @@ footer {
 
   .contact-text {
     padding: 40px;
-    width: 70%;
+    
   }
 
 
@@ -255,7 +304,37 @@ footer {
     background-color: #f2f2f2;
   }
 
+  
 
+}
+
+@media (max-width: 700px) {
+  .music {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .spotify {
+    width: 100%;
+    max-width: 700px;
+    min-height: fit-content;
+    align-items: center;
+  }
+  .player {
+    order: 3;
+    width: 90%;
+    height: 88px;
+    max-width: 500px;
+    min-width: 244px;
+    
+  }
+
+  .contact-text {
+    width: 100%;
+    border: none;
+    padding-bottom: 0;
+  }
 }
 
 @media (max-width: 364px) {
@@ -266,7 +345,7 @@ footer {
 
 @media (max-width: 345px) {
   h1 {
-    font-size: 3.1rem;
+    font-size: 3.2rem;
   }
   a {
     font-size: 0.85rem;
@@ -302,7 +381,7 @@ footer {
 
 @media (max-width: 287px) {
   h1 {
-    font-size: 2.4rem;
+    font-size: 2.6rem;
   }
   a {
     font-size: 0.6rem;
