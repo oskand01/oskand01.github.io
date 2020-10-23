@@ -165,7 +165,7 @@ h6 {
     width: 100%;
     margin: auto;
     display: grid !important;
-    grid-template-columns: 362px auto;
+    grid-template-columns: 380px auto;
     grid-template-rows: auto;
     grid-template-areas: "header main";
     justify-items: center;
@@ -176,7 +176,7 @@ h6 {
   .sticky-top {
     height: 95vh;
     /*     */
-    width: 362px;
+    width: 380px;
     position: fixed;
     text-align: center;
     display: flex;
@@ -211,7 +211,7 @@ h6 {
     position: fixed;
     height: 5vh;
     bottom: 0;
-    width: 362px;
+    width: 380px;
 
     z-index: 3;
     background-color: #0d0d0d;
@@ -260,6 +260,7 @@ h6 {
 
   .img-small {
     display: block;
+    min-width: 200px;
   }
 
   #about {
