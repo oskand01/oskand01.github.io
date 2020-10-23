@@ -24,7 +24,7 @@ p {
 }
 
 .logo {
-  font-size: 3rem;
+  font-size: 2.2rem;
   font-weight: 200;
   text-align: center;
   margin-bottom: 0rem;
@@ -221,7 +221,7 @@ h4, h5, h6 {
     padding: 0rem !important;
   }
 
-  h1 {
+  .logo {
     font-size: 3.35rem;
     width: 100%;
     padding: 10px;
@@ -348,8 +348,8 @@ h4, h5, h6 {
 }
 
 @media (max-width: 1023px) {
-  h1 {
-    font-size: 3.3rem;
+  .logo {
+    font-size: 3.5rem;
   }
 
   a {
@@ -359,7 +359,7 @@ h4, h5, h6 {
 }
 
 @media (max-width: 400px) {
-  h1 {
+  .logo {
     font-size: 3.2rem;
   }
 
@@ -371,7 +371,7 @@ h4, h5, h6 {
 
 @media (max-width: 370px) {
 
-  h1 {
+  .logo {
     font-size: 3rem;
   }
 
@@ -388,7 +388,7 @@ h4, h5, h6 {
 }
 
 @media (max-width: 345px) {
-  h1 {
+  .logo {
     font-size: 2.9rem;
   }
   a {
@@ -397,7 +397,7 @@ h4, h5, h6 {
 }
 
 @media (max-width: 331px) {
-  h1 {
+  .logo {
     font-size: 2.8rem;
   }
   a {
@@ -406,7 +406,7 @@ h4, h5, h6 {
 }
 
 @media (max-width: 320px) {
-  h1 {
+  .logo {
     font-size: 2.7rem;
   }
   a {
@@ -415,7 +415,7 @@ h4, h5, h6 {
 }
 
 @media (max-width: 309px) {
-  h1 {
+  .logo {
     font-size: 2.3rem;
   }
   a {
@@ -423,8 +423,8 @@ h4, h5, h6 {
   }
 }
 
-@media (max-width: 287px) {
-  h1 {
+@media (max-width: 271px) {
+  .logo {
     font-size: 2.3rem;
   }
   a {
@@ -433,8 +433,19 @@ h4, h5, h6 {
 }
 
 @media (max-width: 270px) {
-  h1 {
+  .logo {
     font-size: 2.2rem;
+  }
+  a {
+    font-size: 0.5rem;
+  }
+
+}
+
+@media (max-width: 250px) {
+
+  a {
+    font-size: 0.45rem;
   }
 
 }
