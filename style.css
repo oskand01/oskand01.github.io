@@ -45,12 +45,11 @@ a {
   font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: bolder;
-  
 }
 
 a:hover {
   color: #bfbfbf;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 footer {
@@ -69,21 +68,20 @@ footer {
   padding-top: 0.1rem;
 }
 
-.schedule {
+.tour {
   width: 100%;
-
   text-align: center;
   background-color: #f2f2f2;
   padding: 20px;
-  display: grid;
-  font-size: .7rem;
-  gap: .5rem;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: 
-  "header header header"
-  "gig1 gig2 gig3"
-   ;
+
+}
+
+.schedule {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .m-wrapper {
@@ -94,67 +92,53 @@ footer {
   background-color: #f2f2f2;
   padding: 1rem;
   width: 100%;
-  
-  border-bottom: .5rem solid #0d0d0d;
- 
+
+  border-bottom: 0.5rem solid #0d0d0d;
 }
-
-
-
-
-
-
-
 
 .schedule-header {
   grid-area: header;
   padding: 1rem;
   text-align: left;
-  background-color: #BFBFBF;
+  background-color: #bfbfbf;
   align-self: center;
-  
-
 }
 
-.gig1 {
-  grid-area: gig1;
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-right: 0.2rem;
 }
 
-.gig2 {grid-area: gig2;}
-
-.gig3 {
-  grid-area: gig3;
-}
-
-.gig1 h4, h5, h6 {
+.gig1 h4,
+h5,
+h6 {
   background-color: white;
   display: inline;
-  padding-left: .3rem;
-  padding-right: .3rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
   position: relative;
   z-index: 2;
-
- 
-  
-  
-
-
-} 
-h4, h5, h6 { 
-  margin-top: 0;
-  margin-right: .2rem;
 }
+
+.gig {
+  min-width: 250px;
+  max-width: 350px;
+  padding-bottom: .8rem;
+}
+
 .schedule img {
   width: 100%;
   z-index: 1;
-  position: relative;}
+  position: relative;
+}
 
 .contact-text {
   padding: 20px;
   background-color: #f2f2f2;
   border-bottom: 0.5rem solid #0d0d0d;
   width: 50%;
-
 }
 
 .img-small {
@@ -183,24 +167,21 @@ h4, h5, h6 {
     display: grid !important;
     grid-template-columns: 362px auto;
     grid-template-rows: auto;
-    grid-template-areas: 
-    "header main";
+    grid-template-areas: "header main";
     justify-items: center;
     justify-content: space-evenly;
     background-color: #bfbfbf;
-    
   }
 
   .sticky-top {
-    
     height: 95vh;
-/*     */
+    /*     */
     width: 362px;
     position: fixed;
     text-align: center;
     display: flex;
     flex-direction: column;
-    
+
     box-shadow: none;
     grid-area: header;
     box-sizing: border-box;
@@ -208,11 +189,10 @@ h4, h5, h6 {
 
   #main-large {
     width: 100%;
-    
-    
-    position: relative; 
+
+    position: relative;
     border-right: 2.5rem solid;
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
 
     grid-area: main;
   }
@@ -257,8 +237,7 @@ h4, h5, h6 {
   a:hover {
     color: #bfbfbf;
     font-size: 2.1rem;
-    transition: .1s;
-
+    transition: 0.1s;
   }
 
   .about-text {
@@ -271,10 +250,7 @@ h4, h5, h6 {
 
   .contact-text {
     padding: 40px;
-    
   }
-
-
 
   h2,
   h3,
@@ -293,51 +269,34 @@ h4, h5, h6 {
   .contact-text {
     background-color: #f2f2f2;
   }
-
-  
-
 }
 
 @media (min-width: 701px) {
   .spotify {
     min-width: 300px;
     max-width: 300px;
-    
-    
   }
 
   .m-wrapper {
     width: 100%;
     display: flex;
-    flex-direction: row!important;
+    flex-direction: row !important;
   }
 
   .contact-text {
     width: fit-content;
   }
-
 }
 
-
 @media (max-width: 700px) {
-
-
-
-
-
-
   .spotify {
     width: 100%;
     min-height: fit-content;
     align-items: center;
   }
   .player {
-    
     width: 100%;
     height: 87px;
-    
-    
-    
   }
 
   .contact-text {
@@ -355,7 +314,6 @@ h4, h5, h6 {
   a {
     font-size: 1rem;
   }
-
 }
 
 @media (max-width: 400px) {
@@ -366,11 +324,9 @@ h4, h5, h6 {
   a {
     font-size: 0.9rem;
   }
-
 }
 
 @media (max-width: 370px) {
-
   .logo {
     font-size: 3rem;
   }
@@ -378,7 +334,6 @@ h4, h5, h6 {
   a {
     font-size: 0.9rem;
   }
-  
 }
 
 @media (max-width: 364px) {
@@ -439,13 +394,10 @@ h4, h5, h6 {
   a {
     font-size: 0.5rem;
   }
-
 }
 
 @media (max-width: 250px) {
-
   a {
     font-size: 0.45rem;
   }
-
 }
