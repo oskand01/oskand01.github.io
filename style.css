@@ -19,8 +19,6 @@ body {
   background-color: #0d0d0d;
 }
 
-
-
 .logo {
   font-size: 2.2rem;
   font-weight: 200;
@@ -65,10 +63,7 @@ footer {
 .about {
   padding: 20px;
   background-color: #f2f2f2;
-  border-bottom: 0.5rem solid #0d0d0d;
 }
-
-
 
 .nav-link {
   padding-top: 0.1rem;
@@ -77,8 +72,8 @@ footer {
 .tour {
   width: 100%;
   text-align: center;
-  background-color: #7D6167;
-  padding: 20px;
+  background-color: #7d6167;
+  padding: 1rem 2rem;
 }
 
 .schedule {
@@ -86,63 +81,66 @@ footer {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  
-  
 }
 
 .m-wrapper {
   width: 100%;
-  border-bottom: 0.5rem solid #0d0d0d;
-  background-color: #8C8C8C;
+  background-color: #8c8c8c;
+  padding: 1rem;
 }
 
 .music img {
-  padding: 1rem 1rem 0 1rem;
-  background-color: #8C8C8C;
+  padding: 2rem 2rem 0 2rem;
+  background-color: #8c8c8c;
   object-position: 0 40%;
 }
 
 .spotify {
   padding: 1rem;
+  padding-top: 0;
+  padding-bottom: 2rem;
   width: 100%;
 }
 
 .contact-text {
-  padding: 1rem 2rem 0rem 1rem;
-  font-size: 1.4rem;
+  padding: 1rem 2rem 2rem 1rem;
+  font-size: 1.5rem;
   text-align: center;
   font-weight: 200;
   margin-bottom: 0rem;
- 
+
   width: 50%;
-  max-width: 550px;
-  color: #f2f2f2;
+  min-width: 230px;
+  max-width: 600px;
+  color: black;
   margin: auto;
 }
 
 .byline {
   padding-top: 0rem;
-  font-size: .7rem;
+  font-size: 0.7rem;
   font-weight: 600;
 }
 
 .contact-text h2 {
   text-align: center;
   font-weight: 200;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .schedule-header {
-  padding: .3rem .7rem;
+  padding: 0.1rem 0.5rem;
   text-align: center;
-  font-family: monospace;
+  font-family: arial;
   display: inline;
   font-weight: bold;
   background-color: #f2f2f2;
-  
-  
-  
-  align-self: center;
+  position: relative;
+  z-index: 2;
+  left: auto;
+  right: auto;
+  top: 0.7rem;
+  font-size: 1.7rem;
 }
 
 h4,
@@ -168,21 +166,19 @@ h6 {
   min-width: 200px;
   max-width: 400px;
   padding-bottom: 0.8rem;
-  filter: opacity(90%);
-  
+  filter: opacity(80%);
+  margin-top: 0.5rem;
 }
 
 .gig:hover {
   filter: opacity(100%);
+  transition: 0.2s;
 }
 
 .schedule img {
   width: 100%;
   z-index: 1;
-  
 }
-
-
 
 .img-small {
   display: none;
