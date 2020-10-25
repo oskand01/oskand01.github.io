@@ -19,9 +19,7 @@ body {
   background-color: #0d0d0d;
 }
 
-p {
-  
-}
+
 
 .logo {
   font-size: 2.2rem;
@@ -111,7 +109,7 @@ footer {
 
 .contact-text {
   padding: 1rem 2rem 0rem 1rem;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   text-align: center;
   font-weight: 200;
   margin-bottom: 0rem;
@@ -119,11 +117,12 @@ footer {
   width: 50%;
   max-width: 550px;
   color: #f2f2f2;
+  margin: auto;
 }
 
 .byline {
   padding-top: 0rem;
-  font-size: .8rem;
+  font-size: .7rem;
   font-weight: 600;
 }
 
