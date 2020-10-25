@@ -17,6 +17,11 @@
   .contact-text {
     width: fit-content;
   }
+
+  .img-small {
+    display: block;
+    min-width: 200px;
+  }
 }
 
 @media (max-width: 700px) {
