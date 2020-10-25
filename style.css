@@ -110,13 +110,21 @@ footer {
 }
 
 .contact-text {
-  padding: 1rem;
-  font-size: 1.2rem;
+  padding: 1rem 2rem 0rem 1rem;
+  font-size: 1.3rem;
   text-align: center;
   font-weight: 200;
-  padding: 20px;
+  margin-bottom: 0rem;
+ 
   width: 50%;
+  max-width: 550px;
   color: #f2f2f2;
+}
+
+.byline {
+  padding-top: 0rem;
+  font-size: .8rem;
+  font-weight: 600;
 }
 
 .contact-text h2 {
