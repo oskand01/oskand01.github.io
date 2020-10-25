@@ -20,7 +20,7 @@ body {
 }
 
 p {
-  color: black;
+  
 }
 
 .logo {
@@ -61,7 +61,7 @@ footer {
 .main img {
   max-height: 500px;
   object-fit: cover;
-  object-position: 0 5%;
+  object-position: 0 10%;
 }
 
 .about {
@@ -69,6 +69,8 @@ footer {
   background-color: #f2f2f2;
   border-bottom: 0.5rem solid #0d0d0d;
 }
+
+
 
 .nav-link {
   padding-top: 0.1rem;
@@ -107,6 +109,22 @@ footer {
   width: 100%;
 }
 
+.contact-text {
+  padding: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 200;
+  padding: 20px;
+  width: 50%;
+  color: #f2f2f2;
+}
+
+.contact-text h2 {
+  text-align: center;
+  font-weight: 200;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .schedule-header {
   padding: .3rem .7rem;
   text-align: center;
@@ -114,7 +132,7 @@ footer {
   display: inline;
   font-weight: bold;
   background-color: #f2f2f2;
-  font-size: ;
+  
   
   
   align-self: center;
@@ -157,10 +175,7 @@ h6 {
   
 }
 
-.contact-text {
-  padding: 20px;
-  width: 50%;
-}
+
 
 .img-small {
   display: none;
