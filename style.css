@@ -51,7 +51,8 @@ a:hover {
 footer {
   text-align: center;
   color: #8c8c8c;
-  padding-top: 10px;
+  padding-top: 1rem;
+  padding-bottom: .5rem;
 }
 
 .main img {
@@ -86,7 +87,7 @@ footer {
 .m-wrapper {
   width: 100%;
   background-color: #8c8c8c;
-  padding: 1rem 1rem 0 1rem;
+  padding: 1rem 1rem 1rem 1rem;
 }
 
 .music img {
