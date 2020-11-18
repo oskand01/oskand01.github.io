@@ -277,7 +277,7 @@ address {
   position: relative;
   bottom: 0.9rem;
   left: .5rem;
-  max-width: 340px;
+  width: 100%;
   margin: 0 auto;
   text-align: left;
   max-width: 300px;
