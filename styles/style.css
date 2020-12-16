@@ -17,7 +17,7 @@ img {
 }
 
 .navbar-brand {
-  width: 10%;
+  width: 20%;
   margin: 0;
 }
 
@@ -36,18 +36,17 @@ img {
 
 .container {
   padding: 0;
-  background-color: #ffffeb;
+  background-color: #f8faf1;
   color: #32292f;
   height: 100%;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  
 }
 
 h6 {
   max-width: 60%;
-  word-wrap: wrap;
+
   text-align: center;
   font-size: 1rem;
 
@@ -92,30 +91,29 @@ footer {
   flex-direction: column;
   background-color: #feff9c;
   margin-bottom: 3rem;
-
-  
 }
 
 .content {
   transition: all 0.3s ease;
   padding: 0rem 0.5rem;
   overflow: hidden;
+  height: 100%;
 }
-.note:hover {
-  height:fit-content;
-  
-  
-  transition: all 0.3s ease;
-  transform: scale(1.02);
-  
-  
-}
-
 
 .note:hover .content {
   transition: all 0.3s ease;
   overflow: initial;
+  min-height: 115px;
 }
+
+.note:hover {
+  height: fit-content;
+
+  transition: all 0.3s ease;
+  transform: scale(1.02);
+}
+
+
 
 .note-list {
   background-color: #d1e2f0;
@@ -190,7 +188,7 @@ footer {
   border-radius: 0.3rem;
 }
 
-.note-list:hover .input-container {
+.note-list:hover, .input-container {
   display: flex;
   justify-content: space-between;
 }
@@ -221,7 +219,7 @@ footer {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #fffff9;
   min-width: 120px;
   z-index: 1;
   top: 2.5rem;
@@ -370,6 +368,7 @@ footer {
 
 .dropdown-menu.show {
   padding: 0.5rem;
+  background-color: #fffff9;
 }
 
 .dropdown-item {
@@ -406,7 +405,6 @@ footer {
 
   h6 {
     width: 100%;
-    word-wrap: wrap;
     text-align: center;
     font-size: 1.2rem;
   }
@@ -426,9 +424,9 @@ footer {
     min-height: 225px;
   }
 
-  .note:hover {
-    
+  .note:hover, .note:active {
+    min-height: 225px;
     margin-top: 0rem;
     margin-bottom: 2rem;
-}
+  }
 }
