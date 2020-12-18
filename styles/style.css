@@ -101,16 +101,14 @@ footer {
 }
 
 .note:hover .content {
-  transition: all 0.3s ease;
   overflow: initial;
   min-height: 115px;
 }
 
 .note:hover {
   height: fit-content;
-
-  transition: all 0.3s ease;
   transform: scale(1.02);
+  margin: 3rem 0rem 5rem 0rem;
 }
 
 
