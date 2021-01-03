@@ -25,7 +25,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 6vw;
+  height: 8vw;
 }
 
 main {
@@ -53,7 +53,7 @@ footer img {
   min-width: 1rem;
   min-height: 1rem;
   opacity: 60%;
-  margin: 0 .8vw;
+  margin: 0 1.2vw;
 }
 
 address {
@@ -133,7 +133,7 @@ p {
   padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 200;
-  font-size: 3.1vw;
+  font-size: 4vw;
   color: #292929;
 }
 
@@ -149,8 +149,8 @@ p {
 }
 
 #menu img {
-  max-width: 2.8vw;
-  min-width: 2.8vw;
+  width: 4vw;
+  
 }
 
 #menu:hover {
@@ -206,11 +206,11 @@ p {
 }
 
 #alarm-list-container h3 {
-  font-size: 2.5vw;
+  font-size: 3vw;
 }
 
 .alarm-list-header {
-  font-size: 2vw;
+  
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 200;
 }
@@ -229,8 +229,7 @@ p {
 }
 
 #exit-alarm-button img {
-  max-width: 4vw;
-  min-width: 4vw;
+  width: 5vw;
   
 }
 
@@ -260,8 +259,7 @@ p {
 }
 
 #save-alarm-button img {
-  max-width: 4vw;
-  min-width: 4vw;
+  width: 5vw;
   
 }
 
@@ -292,7 +290,7 @@ p {
 }
 
 .alarm-list-item h5 {
-  font-size: 4vw;
+  font-size: 5vw;
   font-stretch: ultra-expanded;
   font-family: monospace;
   color: #3D3D3D;
@@ -338,12 +336,7 @@ p {
   transition: 0.3s;
 }
 
-.alarm-button:last-child img {
-  width: 4vw;
-  height: 4vw;
-  max-width: 3vw;
-  max-height: 3vw;
-}
+
 
 
 
@@ -356,9 +349,13 @@ p {
 }
 
 .alarm-button img {
-  width: 2vw;
-  height: 2vw;
-  max-width: 3vw;
-  max-height: 3vw;
+  width: 3vw;
+  height: 3vw;
+  
+}
+
+.alarm-button:last-child img {
+  width: 5vw;
+  height: 5vw;
   
 }
