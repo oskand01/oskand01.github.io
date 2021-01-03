@@ -113,7 +113,7 @@ input:focus {
   color: #141414;
 }
 
-p {
+#date {
   z-index: 100;
   position: relative;
   padding: 0.2vw 0.7vw 0vw;
@@ -125,7 +125,7 @@ p {
   background-color: white;
   width: fit-content;
   height: fit-content;
-  font-size: 4vw;
+  font-size: 4.5vw;
 }
 
 .clock-container div {
@@ -155,7 +155,7 @@ p {
 }
 
 #menu img {
-  width: 6vw;
+  width: 5.5vw;
   
 }
 
