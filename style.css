@@ -283,6 +283,7 @@ p {
   min-height: 3vw;
   margin-top: 4vw;
   padding: 2vw;
+  padding-left: 3vw;
   box-shadow: #F8CBC9 0vw .4vw .8vw 0vw inset;
   border-radius: .4rem;
   color: #3D3D3D;
