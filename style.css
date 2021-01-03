@@ -113,7 +113,7 @@ input:focus {
   color: #141414;
 }
 
-#date {
+p {
   z-index: 100;
   position: relative;
   padding: 0.2vw 0.7vw 0vw;
@@ -125,7 +125,7 @@ input:focus {
   background-color: white;
   width: fit-content;
   height: fit-content;
-  font-size: 4.5vw;
+  font-size: 5vw;
 }
 
 .clock-container div {
@@ -299,7 +299,7 @@ input:focus {
 .alarm-list-item h5 {
   font-size: 6vw;
   font-stretch: ultra-expanded;
-  font-family: monospace;
+  font-family: roboto;
   color: #3D3D3D;
   transition: 0.3s;
 
