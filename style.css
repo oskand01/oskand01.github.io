@@ -283,6 +283,7 @@ input:focus {
   max-height: 70vh;
 
   padding: 4vw 4vw 8vw;
+  overflow: scroll;
 }
 
 #alarm-list-container h3 {
