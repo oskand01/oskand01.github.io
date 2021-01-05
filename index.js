@@ -38,6 +38,10 @@ function checkDevice() {
     document.body.style.height = h;
 
     if (w > h * 1.5) {
+      if(document.body.fullscreenElement != null) {
+        document.body.addEventListener("click", closeFullscreen);
+        
+      }
       document.querySelector(".alarm-container").style.height = "45vw;";
       document.body.style.transform = "scale(0.6)";
       document.body.style.height = "100vh";
@@ -74,7 +78,21 @@ function openFullscreen() {
   } else if (body.msRequestFullscreen) { /* IE11 */
     body.msRequestFullscreen();
   }
+  body.removeEventListener("click", openFullscreen);
 
+
+}
+
+function closeFullscreen() {
+  const body = document.body;
+  if (body.exitFullscreen) {
+    body.exitFullscreen();
+  } else if (body.webkitExitFullscreen) { /* Safari */
+    body.webkitExitFullscreen();
+  } else if (body.mozCancelFullscreen) { /* IE11 */
+    body.mozCancelFullscreen();
+  }
+  body.removeEventListener("click", closeFullscreen);
 
 }
 
