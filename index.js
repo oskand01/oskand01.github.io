@@ -48,7 +48,7 @@ function checkDevice() {
       document.querySelector(".alarm-container").style.minWidth = "100%";
       document.querySelector(".alarm-container").style.marginTop = "0";
     } else {
-      openFullscreen()
+      document.body.addEventListener("click", openFullscreen)
       document.body.style.transform = "scale(1)";
       document.body.style.height = "100vh";
       document.body.style.position = "static";
@@ -74,6 +74,7 @@ function openFullscreen() {
   } else if (body.msRequestFullscreen) { /* IE11 */
     body.msRequestFullscreen();
   }
+
 
 }
 
