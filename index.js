@@ -48,7 +48,7 @@ function checkDevice() {
       document.querySelector(".alarm-container").style.minWidth = "100%";
       document.querySelector(".alarm-container").style.marginTop = "0";
     } else {
-      document.body.requestFullscreen();
+      openFullscreen()
       document.body.style.transform = "scale(1)";
       document.body.style.height = "100vh";
       document.body.style.position = "static";
@@ -61,6 +61,20 @@ function checkDevice() {
     let h = document.documentElement.clientHeight;
     console.log(w, h);
   }
+}
+
+
+//Stolen from w3 schools: https://www.w3schools.com/jsref/met_element_requestfullscreen.asp
+function openFullscreen() {
+  const body = document.body;
+  if (body.requestFullscreen) {
+    body.requestFullscreen();
+  } else if (body.webkitRequestFullscreen) { /* Safari */
+    body.webkitRequestFullscreen();
+  } else if (body.msRequestFullscreen) { /* IE11 */
+    body.msRequestFullscreen();
+  }
+
 }
 
 function getDate() {
