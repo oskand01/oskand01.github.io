@@ -192,7 +192,7 @@ p {
   display: flex;
   justify-content: center;
   transition: 0.1s linear;
-  color: #525252;
+  color: #3D3D3D;
 }
 
 .input-list {
@@ -209,6 +209,7 @@ p {
 
 .alarm-option {
   transition: 0.2s;
+  color: #666666;
 }
 
 .alarm-option:hover {
@@ -339,7 +340,7 @@ p {
   padding-left: 3vw;
   box-shadow: #f8cbc9 0vw 0.4vw 0.8vw 0vw inset;
   border-radius: 0.4rem;
-  color: #3d3d3d;
+  color: #666666;
   transition: 0.3s;
 }
 
@@ -347,7 +348,7 @@ p {
   font-size: 6vw;
   font-stretch: expanded;
   font-family: monospace;
-  color: #3d3d3d;
+  color: #666666;
   transition: 0.3s;
 }
 
