@@ -358,3 +358,4 @@ window.addEventListener("DOMContentLoaded", () => {
   initApp();
   setInterval(setTime, 1000);
 });
+
