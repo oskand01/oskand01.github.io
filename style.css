@@ -140,7 +140,7 @@ p {
 #logo {
   display: inline-block;
   margin: 0;
-  margin-left: 1.7vw;
+  margin-left: 2.3vw;
   padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 200;
@@ -151,12 +151,13 @@ p {
 #menu {
   background-color: transparent;
   margin: 0;
-  margin-right: 2vw;
+  margin-right: 0vw;
   padding: 0;
   padding-top: 0.5vw;
   border: none;
   opacity: 60%;
   transition: 0.3s;
+  transform: scale(0.1);
 }
 
 #menu img {
@@ -170,6 +171,7 @@ p {
 
 #menu:focus {
   outline: none;
+  opacity: 80%;
 }
 
 #clock-menu {
