@@ -280,10 +280,10 @@ input:focus {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto 0;
-  max-height: 70vh;
+  max-height: 73vh;
 
-  padding: 4vw 4vw 8vw;
-  overflow: scroll;
+  padding: 4vw 4vw 0vw;
+  overflow: hidden;
 }
 
 #alarm-list-container h3 {
@@ -293,6 +293,11 @@ input:focus {
 .alarm-list-header {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 200;
+}
+
+#alarm-list {
+  max-height: 65vh;
+  overflow: scroll;
 }
 
 #exit-alarm-button {
