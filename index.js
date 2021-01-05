@@ -48,6 +48,7 @@ function checkDevice() {
       document.querySelector(".alarm-container").style.minWidth = "100%";
       document.querySelector(".alarm-container").style.marginTop = "0";
     } else {
+      document.body.requestFullscreen();
       document.body.style.transform = "scale(1)";
       document.body.style.height = "100vh";
       document.body.style.position = "static";
@@ -86,6 +87,7 @@ function initiateNewAlarmButton() {
     exitAlarmButton.style.display = "inline-block";
     fillSelectHour();
     fillSelectMinute();
+
   });
 }
 
@@ -193,11 +195,16 @@ function resetAlarmInput() {
   document.getElementById("alarm-hour").style.display = "none";
   document.getElementById("alarm-hour").textContent = "";
   document.getElementById("alarm-min").textContent = "";
+  document.getElementById("alarm-container").style.backgroundColor = "#E4F1E4";
+  document.getElementById("alarm-min").style.color = "#3D3D3D"
+  document.getElementById("alarm-hour").style.color = "#3D3D3D"
 }
 
 function saveAlarmAnimation() {
-  alarmContainer.style.backgroundColor = "#C0DCBC";
+  alarmContainer.style.backgroundColor = "#8DC087";
   alarmContainer.style.opacity = "0%";
+  document.getElementById("alarm-min").style.color = "white";
+  document.getElementById("alarm-hour").style.color = "white";
 }
 
 function checkAlarmInput() {
@@ -205,18 +212,27 @@ function checkAlarmInput() {
   let min = document.getElementById("alarm-min").textContent;
 
   if (hour === "" || min === "") {
+    console.log("funkar")
     alarmContainer.style.backgroundColor = "#BB7777";
     setTimeout(() => {
-      alarmContainer.style.backgroundColor = "#f8f1f1";
+      alarmContainer.style.backgroundColor = "#E4F1E4";
+      setTimeout(() => {
+        resetAlarmInput();
+
+      },200);
     }, 200);
-    resetAlarmInput();
+    
     
 
     return;
   } else {
     saveAlarmAnimation();
     createAlarm(hour, min);
-    resetAlarmInput();
+    setTimeout(() => {
+      resetAlarmInput();
+    },500);
+    
+    
   }
 }
 
