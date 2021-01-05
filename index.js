@@ -28,6 +28,7 @@ function initApp() {
   initiateNewAlarmButton();
   initiateExitAlarmButton();
   initiateSaveAlarmButton();
+  newAlarmButtonFocus();
 }
 
 function checkDevice() {
@@ -46,7 +47,6 @@ function checkDevice() {
       document.querySelector(".alarm-container").style.minHeight = "18.35vw";
       document.querySelector(".alarm-container").style.minWidth = "100%";
       document.querySelector(".alarm-container").style.marginTop = "0";
-      
     } else {
       document.body.style.transform = "scale(1)";
       document.body.style.height = "100vh";
@@ -55,7 +55,6 @@ function checkDevice() {
       document.querySelector(".alarm-container").style.minHeight = "75vw";
       document.querySelector(".alarm-container").style.height = "48vw;";
     }
-
   } else {
     let w = document.documentElement.clientWidth;
     let h = document.documentElement.clientHeight;
@@ -88,6 +87,20 @@ function initiateNewAlarmButton() {
     fillSelectHour();
     fillSelectMinute();
   });
+}
+
+function newAlarmButtonFocus() {
+  
+  newAlarmButton.style.transition = "0.5s";
+  newAlarmButton.style.transform = "scale(1.2)";
+  newAlarmButton.style.marginRight = "4vw"
+  setTimeout(() => {
+    newAlarmButton.style.transform = "scale(1)";
+    newAlarmButton.style.transition = "0.3s";
+    newAlarmButton.style.marginRight = "3vw"
+    newAlarmButton.focus();
+  }, 500);
+  
 }
 
 function fillSelectHour() {
@@ -160,19 +173,13 @@ function returnToDashboard() {
 
 function initiateSaveAlarmButton() {
   saveAlarmButton.addEventListener("click", () => {
-    saveAlarmAnimation();
-    createAlarm();
-    
-    
-
-
+    checkAlarmInput();
   });
 }
 
 function initSelectedAlarmBtn() {
-  document.getElementById("alarm-min")
-  document.getElementById("alarm-hour")
-
+  document.getElementById("alarm-min");
+  document.getElementById("alarm-hour");
 }
 
 function resetAlarmList() {
@@ -191,9 +198,24 @@ function saveAlarmAnimation() {
   alarmContainer.style.opacity = "0%";
 }
 
-function createAlarm() {
-  const hour = document.getElementById("alarm-hour").innerText;
-  const min = document.getElementById("alarm-min").innerText;
+function checkAlarmInput() {
+  const hour = document.getElementById("alarm-hour").textContent;
+  const min = document.getElementById("alarm-min").textContent;
+
+  if (hour === "" || min === "") {
+    alarmContainer.style.backgroundColor = "#BB7777";
+    setTimeout(() => {
+      alarmContainer.style.backgroundColor = "#f8f1f1";
+    }, 200);
+
+    return;
+  } else {
+    saveAlarmAnimation();
+    createAlarm(hour, min);
+  }
+}
+
+function createAlarm(hour, min) {
   console.log(`${hour}:${min}`);
   alarms.push(new Alarm(hour, min));
   setTimeout(() => {
