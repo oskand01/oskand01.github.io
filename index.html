@@ -14,25 +14,38 @@
   <body>
     <div id="main-container">
       <header>
-        <h1 id="logo">ALARMIFY</h1>
-        <button id="menu">
-          <img src="/media/alarm.svg" alt="Menu button" title="Menu" />
-        </button>
-        <button id="exit-alarm-button">
-          <img src="/media/x.svg" alt="Exit button" title="Exit" />
-        </button>
+        <div class="header-container">
+          <h1 id="logo">ALARMIFY</h1>
+
+        </div>
+        <div class="header-container">
+          <p id="date"></p>
+
+        </div>
+        <div class="header-container">
+          <button id="menu">
+            <img src="/media/alarm.svg" alt="Menu button" title="Menu" />
+          </button>
+          <button id="exit-alarm-button">
+            <img src="/media/x.svg" alt="Exit button" title="Exit" />
+          </button>
+
+        </div>
+        
+        
+        
       </header>
       <main>
         <div id="container" class="clock-container">
           <div id="clock-menu">
-            <p id="date"></p>
+            
           </div>
 
           <span id="hour"></span><span id="minute"></span
           ><!--<span id="second"></span>-->
         </div>
         <div id="alarm-container">
-          <p>NEW ALARM</p>
+          <p class ="alarm-header">NEW ALARM</p>
 
           <div class="input-container">
             <span id="alarm-hour"></span>
