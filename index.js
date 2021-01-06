@@ -405,19 +405,14 @@ function setTime() {
     const alarmCheck = `${hour}:${minute}`;
 
     if (checkAlarm(alarmCheck)) {
-      console.log("Alarm!")
+      console.log("Alarm!");
       const alarmTimer = setInterval(hornAlarm, 1000);
       clockContainer.addEventListener("click", () => {
         clearInterval(alarmTimer);
         clockContainer.style.boxShadow = "initial";
-
       });
 
-      
-      //
     }
-
-    
   }
 }
 
@@ -431,16 +426,14 @@ function checkAlarm(alarmCheck) {
 }
 //last ten seconds every hour the
 function hornAlarm() {
-  const audio = new Audio("/media/mjaularm.mp3");
+  const audio = new Audio("/media/mjaularm3.mp3");
   audio.play();
-  clockContainer.style.boxShadow = "rgba(0, 0, 0, 0.1) 0px 4px 12px"
-  
+  clockContainer.style.boxShadow = "rgba(0, 0, 0, 0.1) 0px 4px 12px";
 
   clockContainer.style.backgroundColor = "#f8cbc9";
   setTimeout(() => {
     clockContainer.style.backgroundColor = "#E2EBF3";
   }, 500);
-  
 }
 
 window.addEventListener("DOMContentLoaded", () => {
