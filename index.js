@@ -190,7 +190,7 @@ function createHourOption(i) {
 
   hourOption.addEventListener("click", (event) => {
     document.querySelector(".left").style.display = "none";
-    event.target.scrollIntoView();
+    event.target.focus();
     hourSelected.textContent = event.target.textContent;
 
     document.getElementById("hour-list").style.display = "none";
@@ -230,7 +230,7 @@ function createMinOption(i) {
   }
 
   minOption.addEventListener("click", (event) => {
-    event.target.scrollIntoView();
+    event.target.focus();
 
     document.querySelector(".right").style.display = "none";
     minSelected.textContent = event.target.textContent;
