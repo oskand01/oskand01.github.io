@@ -26,6 +26,8 @@ function initApp() {
   setTime();
   uppdateAlarmList();
   initiateNewAlarmButton();
+  /* fillSelectHour();
+  fillSelectMinute(); */
   initiateExitAlarmButton();
   initiateSaveAlarmButton();
   newAlarmButtonFocus();
@@ -33,24 +35,31 @@ function initApp() {
 
 function checkDevice() {
   document.body.style.minHeight = "100vh";
-  if (window.innerWidth !== undefined && window.innerHeight !== undefined) {
-    let w = window.innerWidth;
-    let h = window.innerHeight;
+  
+  if(document.querySelectorAll(".alarm-option")[0] !== undefined) {
+    setListItemHeight();
+  }
+  
+  
+  let w;
+  let h;
 
-    if (w > h) {
-      /* if(document.body.fullscreenElement != null) {
-        document.body.addEventListener("click", closeFullscreen);
-        
-      } */
-      document.getElementById("style-sheet").href = "style-desktop.css";
-    } else {
-      //document.body.addEventListener("click", openFullscreen)
-      document.getElementById("style-sheet").href = "style.css";
-    }
+  if (window.innerWidth !== undefined && window.innerHeight !== undefined) {
+    w = window.innerWidth;
+    h = window.innerHeight;
   } else {
-    let w = document.documentElement.clientWidth;
-    let h = document.documentElement.clientHeight;
-    console.log(w, h);
+    w = document.documentElement.clientWidth;
+    h = document.documentElement.clientHeight;
+  }
+  if (w > h) {
+    /* if(document.body.fullscreenElement != null) {
+      document.body.addEventListener("click", closeFullscreen);
+      
+    } */
+    document.getElementById("style-sheet").href = "style-desktop.css";
+  } else {
+    //document.body.addEventListener("click", openFullscreen)
+    document.getElementById("style-sheet").href = "style.css";
   }
 }
 
@@ -108,8 +117,8 @@ function initiateNewAlarmButton() {
 
     fillSelectHour();
     fillSelectMinute();
-    setAlarmListFocus();
-    scrollAnimation();
+    setAlarmListFocus(getListScroll);
+    setTimeout(scrollAnimation, 50);
   });
 }
 
@@ -132,13 +141,14 @@ function scrollAnimation() {
   }, 500);
 }
 
-function setAlarmListFocus() {
+function setAlarmListFocus(callBack) {
   let listHours = document.querySelectorAll(".hour-option");
   let listMins = document.querySelectorAll(".min-option");
   const currentTime = new Date();
 
-  listMins[currentTime.getMinutes() + 60].focus();
-  listHours[currentTime.getHours() + 24].focus();
+  listMins[currentTime.getMinutes()].focus();
+  listHours[currentTime.getHours()].focus();
+  callBack();
   //scrollAlarmList(currentTime.getHours() + 24, currentTime.getMinutes() + 60);
 }
 
@@ -167,16 +177,13 @@ function newAlarmButtonFocus() {
 
 function fillSelectHour() {
   let x = 0;
-
-  while (x < 2) {
-    for (let i = 0; i < 24; i++) {
-      document.getElementById("hour-list").appendChild(createHourOption(i));
-    }
-    x++;
+  let hourList = document.getElementById("hour-list");
+  for (let i = 0; i < 24; i++) {
+    hourList.appendChild(createHourOption(hourList, i));
   }
 }
 
-function createHourOption(i) {
+function createHourOption(hourList, i) {
   let hourOption = document.createElement("li");
   const hourSelected = document.getElementById("alarm-hour");
   hourOption.className = "alarm-option hour-option";
@@ -189,14 +196,12 @@ function createHourOption(i) {
   }
 
   hourOption.addEventListener("click", (event) => {
-    document.querySelector(".left").style.display = "none";
-    event.target.focus();
+    document.querySelector(".left").style.visibility = "hidden";
+    hourList.scrollTo(0, event.target.offsetHeight);
     hourSelected.textContent = event.target.textContent;
 
     document.getElementById("hour-list").style.display = "none";
     hourSelected.style.display = "inline-block";
-
-    console.log(event.target.textContent.valueOf());
 
     initSelectedAlarmTime(hourSelected);
     checkAlarmSelected();
@@ -208,15 +213,46 @@ function fillSelectMinute() {
   let x = 0;
   const minList = document.getElementById("min-list");
 
-  while (x < 2) {
-    for (let i = 0; i < 60; i++) {
-      minList.appendChild(createMinOption(i));
-    }
-    x++;
+  for (let i = 0; i < 60; i++) {
+    minList.appendChild(createMinOption(minList, i));
   }
 }
 
-function createMinOption(i) {
+function setListItemHeight() {
+  let options = document.querySelectorAll(".alarm-option");
+  let optionHeight = options[0].offsetHeight;
+  options.forEach((option) => {
+    option.style.height = `${optionHeight}px`;
+    option.style.minHeight = `${optionHeight}px`;
+    option.style.maxHeight = `${optionHeight}px`;
+  });
+}
+
+function getListScroll() {
+  const hourHolder = document.getElementById("hour-list");
+  const minHolder = document.getElementById("min-list");
+  let options = document.querySelectorAll(".alarm-option");
+  let optionHeight = options[0].offsetHeight;
+  /* options.forEach((option) => {
+    option.style.height = `${optionHeight}px`;
+    option.style.minHeight = `${optionHeight}px`;
+    option.style.maxHeight = `${optionHeight}px`;
+    
+  })  
+  let optionHeight = options[0].offsetHeight; */
+
+  hourHolder.addEventListener("scroll", () => {
+    //console.log(`Hour\nx:${hourHolder.scrollLeft}\ny: ${hourHolder.scrollTop}`);
+    //hourHolder.scrollTop = optionHeight * 15;
+    console.log(optionHeight)
+  });
+  minHolder.addEventListener("scroll", () => {
+    //console.log(`Min\nx:${minHolder.scrollLeft}\ny: ${minHolder.scrollTop}`);
+    //minHolder.scrollTop = optionHeight * 50;
+  });
+}
+
+function createMinOption(minList, i) {
   const minOption = document.createElement("li");
   const minSelected = document.getElementById("alarm-min");
 
@@ -230,9 +266,9 @@ function createMinOption(i) {
   }
 
   minOption.addEventListener("click", (event) => {
-    event.target.focus();
+    console.log(event.target.offsetHeight);
 
-    document.querySelector(".right").style.display = "none";
+    document.querySelector(".right").style.visibility = "hidden";
     minSelected.textContent = event.target.textContent;
 
     document.getElementById("min-list").style.display = "none";
@@ -240,8 +276,6 @@ function createMinOption(i) {
 
     initSelectedAlarmTime(minSelected);
     checkAlarmSelected();
-
-    console.log(event.target.textContent.valueOf());
   });
   return minOption;
 }
@@ -312,8 +346,8 @@ function resetAlarmInput() {
   document.getElementById("alarm-container").style.backgroundColor = "#E4F1E4";
   document.getElementById("alarm-min").style.color = "#3D3D3D";
   document.getElementById("alarm-hour").style.color = "#3D3D3D";
-  document.querySelector(".right").style.display = "flex";
-  document.querySelector(".left").style.display = "flex";
+  document.querySelector(".right").style.visibility = "visible";
+  document.querySelector(".left").style.visibility = "visible";
   saveAlarmButton.style.display = "none";
 }
 
@@ -384,16 +418,13 @@ function createAlarmElements() {
 
   for (let i = 0; i < alarms.length; i++) {
     alarmList.prepend(createAlarmListItem(alarms[i]));
-    alarmList.childNodes[0].style.transform = "scale(0.1)";
+
     setTimeout(() => {
       alarmList.childNodes.forEach((alarmItem) => {
         setTimeout(() => {
           alarmItem.style.transform = "scale(1)";
-
-        }, 1)
-        
-
-      }) 
+        }, 1);
+      });
     }, 50);
   }
 }
@@ -409,7 +440,7 @@ function createAlarmListItem(obj) {
   alarmListItem.appendChild(createActiveButton(obj));
   alarmListItem.appendChild(createAlarmHeader(obj));
   alarmListItem.appendChild(createDeleteAlarmButton(obj));
-  alarmListItem.style.transform = "scale(1)";
+
   return alarmListItem;
 }
 
@@ -503,6 +534,12 @@ function setTime() {
       clockContainer.addEventListener("click", () => {
         clearInterval(alarmTimer);
         clockContainer.style.boxShadow = "initial";
+        console.log(
+          `Hour:\nx:${hourOption.scrollLeft}\ny: ${hourOption.scrollTop}`
+        );
+        console.log(
+          `Min:\ny:${minOption.scrollLeft}\ny: ${minOption.scrollTop}`
+        );
       });
     }
   }
@@ -528,8 +565,8 @@ function hornAlarm() {
   }, 500);
 }
 
+checkDevice();
 window.addEventListener("DOMContentLoaded", () => {
-  checkDevice();
   initApp();
   setInterval(setTime, 1000);
 });
