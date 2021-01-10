@@ -212,12 +212,15 @@ input:focus {
 
 #alarm-hour {
   display: none;
-  transform: scale(1.05);
+
   transition: 0.7s;
   color: #3D3D3D;
-  padding-top: 2vw;
-  margin-right: 2vw;
-  margin-left: 4vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  
+  justify-content: center;
   width: 35vw;
   text-align: right;
   
@@ -225,12 +228,14 @@ input:focus {
  
  #alarm-min {
    display: none;
-   transform: scale(1.05);
    transition: 0.7s;
    color: #3D3D3D;
-   padding-top: 2vw;
-   margin-left: 2vw;
-   margin-right: 4vw;
+   display: flex;
+   flex-direction: column;
+   margin-left: 1vw;
+   margin-right: 1vw;
+   
+   justify-content: center;
    width: 35vw;
    text-align: left;
 
@@ -284,6 +289,10 @@ input:focus {
   list-style: none;
   margin-left: 1vw;
   margin-right: 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   
   
   
@@ -297,10 +306,15 @@ input:focus {
 
 
 .alarm-option {
-  transition: 0.2s;
   color: #666666;
   height: 26vw;
   width: 35vw;
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  
+  
   
   
   
@@ -308,11 +322,14 @@ input:focus {
 }
 
 .alarm-option:hover {  
-  color: #3D3D3D;
+  height: 26vw;
+  width: 35vw;
 }
 
 .alarm-option:focus {
   outline: none;
+  height: 26vw;
+  width: 35vw;
 }
 
 .hour-option {
