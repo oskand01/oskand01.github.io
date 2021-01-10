@@ -44,6 +44,7 @@ main {
 
 #main-container {
   background-color: #f3f5f6;
+  z-index: 1000;
 
   min-height: 48vw;
 }
@@ -274,43 +275,48 @@ input:focus {
 
 #hour-list {
   margin-left: 2vw;
+  display:block;
 }
 #min-list {
   margin-right: 2vw;
+  display: block;
 }
 
 .alarm-option {
   color: #666666;
-  height: 26vw;
+  width: 100%;
+
 }
 
 .alarm-option:hover {
-  height: 26vw;
-  width: 35vw;
+
 }
 
 .alarm-option:focus {
   outline: none;
-  height: 26vw;
-  width: 35vw;
+  margin: 0;
+  padding: 0;
+
 }
 
 .hour-option {
   text-align: right;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  
+  justify-content: center; */
+  padding-right: 2vw;
 
-  justify-content: center;
-  margin-right: 2vw;
 }
 
 .min-option {
   text-align: left;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-
-  justify-content: center;
-  margin-left: 2vw;
+  align-items: flex-start;
+  justify-content: center; */
+  padding-left: 2vw;
 }
 
 .alarm-container {
