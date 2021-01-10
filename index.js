@@ -35,6 +35,7 @@ function initApp() {
 
 function checkDevice() {
   document.body.style.minHeight = "100vh";
+  document.body.style.maxWidth = "100vw";
   
   if(document.querySelectorAll(".alarm-option")[0] !== undefined) {
     setListItemHeight();
@@ -117,6 +118,7 @@ function initiateNewAlarmButton() {
 
     fillSelectHour();
     fillSelectMinute();
+    setListItemHeight();
     setAlarmListFocus(getListScroll);
     setTimeout(scrollAnimation, 50);
   });
@@ -197,7 +199,7 @@ function createHourOption(hourList, i) {
 
   hourOption.addEventListener("click", (event) => {
     document.querySelector(".left").style.visibility = "hidden";
-    hourList.scrollTo(0, event.target.offsetHeight);
+    hourList.scrollTo(event.target.offsetWidth, event.target.offsetHeight);
     hourSelected.textContent = event.target.textContent;
 
     document.getElementById("hour-list").style.display = "none";
@@ -266,8 +268,8 @@ function createMinOption(minList, i) {
   }
 
   minOption.addEventListener("click", (event) => {
-    console.log(event.target.offsetHeight);
-
+    minList.scrollTo(event.target.offsetWidth, event.target.offsetHeight);
+    
     document.querySelector(".right").style.visibility = "hidden";
     minSelected.textContent = event.target.textContent;
 
