@@ -17,6 +17,7 @@ function Alarm(hour, minute) {
   this.hour = hour;
   this.minute = minute;
   this.alarmTime = `${this.hour}:${this.minute}`;
+  this.isNew = true;
   this.active = true;
   this.delete = false;
 }
@@ -38,10 +39,6 @@ function checkDevice() {
   document.body.style.minHeight = "100vh";
   document.body.style.maxWidth = "100vw";
 
-  if (document.querySelectorAll(".alarm-option")[0] !== undefined) {
-    setListItemHeight();
-  }
-
   let w;
   let h;
 
@@ -53,14 +50,19 @@ function checkDevice() {
     h = document.documentElement.clientHeight;
   }
   if (w > h) {
-    /* if(document.body.fullscreenElement != null) {
-      document.body.addEventListener("click", closeFullscreen);
-      
-    } */
     document.getElementById("style-sheet").href = "style-desktop.css";
+    window.addEventListener("DOMContentLoaded", () => {
+      if (document.querySelectorAll(".alarm-option")[0] !== undefined) {
+        setListItemHeight();
+      }
+    });
   } else {
-    //document.body.addEventListener("click", openFullscreen)
     document.getElementById("style-sheet").href = "style.css";
+    window.addEventListener("DOMContentLoaded", () => {
+      if (document.querySelectorAll(".alarm-option")[0] !== undefined) {
+        setListItemHeight();
+      }
+    });
   }
 }
 
@@ -140,31 +142,7 @@ function newAlarmButtonFocus() {
   }, 500);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 //
-
-
-
-
-
-
-
-
-
-
-
-
 
 //Här börjar skapandet av listan
 function fillSelectHour() {
@@ -241,7 +219,6 @@ function createMinOption(minList, i) {
   return minOption;
 }
 
-
 function setListItemHeight() {
   let options = document.querySelectorAll(".alarm-option");
   let optionHeight = options[0].offsetHeight;
@@ -264,18 +241,18 @@ function getListScroll() {
   hourHolder.addEventListener("scroll", () => {
     console.log(hourHolder.scrollTop);
     if (hourListHeight < hourHolder.scrollTop) {
-      hourHolder.scrollTop = (hourListHeight / 2) - (optionHeight / 2);
+      hourHolder.scrollTop = hourListHeight / 2 - optionHeight / 2;
     } else if (hourHolder.scrollTop === 0) {
-      hourHolder.scrollTop = (hourListHeight / 2) + (optionHeight / 2);
+      hourHolder.scrollTop = hourListHeight / 2 + optionHeight / 2;
     }
   });
 
   minHolder.addEventListener("scroll", () => {
-    console.log(minHolder.scrollTop)
+    console.log(minHolder.scrollTop);
     if (minListHeight < minHolder.scrollTop) {
-      minHolder.scrollTop = (minListHeight / 2) - (optionHeight / 2);
+      minHolder.scrollTop = minListHeight / 2 - optionHeight / 2;
     } else if (minHolder.scrollTop === 0) {
-      minHolder.scrollTop = (minListHeight / 2) + (optionHeight / 2);
+      minHolder.scrollTop = minListHeight / 2 + optionHeight / 2;
     }
   });
 }
@@ -409,14 +386,6 @@ function createAlarmElements() {
 
   for (let i = 0; i < alarms.length; i++) {
     alarmList.prepend(createAlarmListItem(alarms[i]));
-
-    setTimeout(() => {
-      alarmList.childNodes.forEach((alarmItem) => {
-        setTimeout(() => {
-          alarmItem.style.transform = "scale(1)";
-        }, 1);
-      });
-    }, 50);
   }
 }
 
@@ -426,6 +395,13 @@ function createAlarmListItem(obj) {
     alarmListItem.className = "alarm-list-item";
   } else {
     alarmListItem.className = "alarm-list-item alarm-list-item-inactive";
+  }
+  if (obj.isNew) {
+    alarmListItem.style.transform = "scale(0.01)";
+    setTimeout(() => {
+      alarmListItem.style.transform = "scale(1)";
+      obj.isNew = false;
+    }, 200);
   }
 
   alarmListItem.appendChild(createActiveButton(obj));
@@ -520,10 +496,13 @@ function setTime() {
 
     if (checkAlarm(alarmCheck)) {
       returnToDashboard();
+      newAlarmButton.style.display = "none";
       const alarmTimer = setInterval(hornAlarm, 1000);
       clockContainer.addEventListener("click", () => {
         clearInterval(alarmTimer);
         clockContainer.style.boxShadow = "initial";
+        newAlarmButton.style.display = "initial";
+
       });
     }
   }
