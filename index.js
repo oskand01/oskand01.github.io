@@ -36,12 +36,11 @@ function initApp() {
 function checkDevice() {
   document.body.style.minHeight = "100vh";
   document.body.style.maxWidth = "100vw";
-  
-  if(document.querySelectorAll(".alarm-option")[0] !== undefined) {
+
+  if (document.querySelectorAll(".alarm-option")[0] !== undefined) {
     setListItemHeight();
   }
-  
-  
+
   let w;
   let h;
 
@@ -63,35 +62,6 @@ function checkDevice() {
     document.getElementById("style-sheet").href = "style.css";
   }
 }
-
-//Stolen from w3 schools: https://www.w3schools.com/jsref/met_element_requestfullscreen.asp
-/* function openFullscreen() {
-  const body = document.body;
-  if (body.requestFullscreen) {
-    body.requestFullscreen();
-  } else if (body.webkitRequestFullscreen) {
-    
-    body.webkitRequestFullscreen();
-  } else if (body.msRequestFullscreen) {
-    
-    body.msRequestFullscreen();
-  }
-  body.removeEventListener("click", openFullscreen);
-}
-
-function closeFullscreen() {
-  const body = document.body;
-  if (body.exitFullscreen) {
-    body.exitFullscreen();
-  } else if (body.webkitExitFullscreen) {
-    
-    body.webkitExitFullscreen();
-  } else if (body.mozCancelFullscreen) {
-    
-    body.mozCancelFullscreen();
-  }
-  body.removeEventListener("click", closeFullscreen);
-} */
 
 function getDate() {
   const date = new Date();
@@ -115,6 +85,9 @@ function initiateNewAlarmButton() {
     clockContainer.style.display = "none";
     newAlarmButton.style.display = "none";
     exitAlarmButton.style.display = "inline-block";
+    document.getElementById("main-container").style.position = "absolute";
+    document.getElementById("main-container").style.width = "100vw";
+    document.getElementById("alarm-list-container").style.marginTop = "48vw"
 
     fillSelectHour();
     fillSelectMinute();
@@ -148,22 +121,11 @@ function setAlarmListFocus(callBack) {
   let listMins = document.querySelectorAll(".min-option");
   const currentTime = new Date();
 
-  listMins[currentTime.getMinutes()].focus();
-  listHours[currentTime.getHours()].focus();
+  listMins[currentTime.getMinutes() + 60].focus();
+  listHours[currentTime.getHours() + 24].focus();
   callBack();
   //scrollAlarmList(currentTime.getHours() + 24, currentTime.getMinutes() + 60);
 }
-
-/* function scrollAlarmList(hourIndex, minIndex) {
-  let listHours = document.querySelectorAll(".hour-option");
-  let listMins = document.querySelectorAll(".min-option");
-  let hourList = document.getElementById("hour-list");
-  let minList = document.getElementById("min-list");
-
-  minList.onscroll = () => {
-    listMins[minIndex + 10].scrollIntoView();
-  };
-} */
 
 function newAlarmButtonFocus() {
   newAlarmButton.style.transition = "0.5s";
@@ -180,8 +142,10 @@ function newAlarmButtonFocus() {
 function fillSelectHour() {
   let x = 0;
   let hourList = document.getElementById("hour-list");
-  for (let i = 0; i < 24; i++) {
-    hourList.appendChild(createHourOption(hourList, i));
+  for (let x = 0; x < 2; x++) {
+    for (let i = 0; i < 24; i++) {
+      hourList.appendChild(createHourOption(hourList, i));
+    }
   }
 }
 
@@ -199,7 +163,7 @@ function createHourOption(hourList, i) {
 
   hourOption.addEventListener("click", (event) => {
     document.querySelector(".left").style.visibility = "hidden";
-    hourList.scrollTo(event.target.offsetWidth, event.target.offsetHeight);
+    // hourList.scrollTo(event.target.offsetWidth, event.target.offsetHeight);
     hourSelected.textContent = event.target.textContent;
 
     document.getElementById("hour-list").style.display = "none";
@@ -212,11 +176,12 @@ function createHourOption(hourList, i) {
 }
 
 function fillSelectMinute() {
-  let x = 0;
   const minList = document.getElementById("min-list");
 
-  for (let i = 0; i < 60; i++) {
-    minList.appendChild(createMinOption(minList, i));
+  for (let x = 0; x < 2; x++) {
+    for (let i = 0; i < 60; i++) {
+      minList.appendChild(createMinOption(minList, i));
+    }
   }
 }
 
@@ -235,22 +200,19 @@ function getListScroll() {
   const minHolder = document.getElementById("min-list");
   let options = document.querySelectorAll(".alarm-option");
   let optionHeight = options[0].offsetHeight;
-  /* options.forEach((option) => {
-    option.style.height = `${optionHeight}px`;
-    option.style.minHeight = `${optionHeight}px`;
-    option.style.maxHeight = `${optionHeight}px`;
-    
-  })  
-  let optionHeight = options[0].offsetHeight; */
+  let hourListHeight = optionHeight * 46;
+  let minListHeight = optionHeight * 118;
 
   hourHolder.addEventListener("scroll", () => {
-    //console.log(`Hour\nx:${hourHolder.scrollLeft}\ny: ${hourHolder.scrollTop}`);
-    //hourHolder.scrollTop = optionHeight * 15;
-    console.log(optionHeight)
+    if (hourListHeight < hourHolder.scrollTop) {
+      hourHolder.scrollTop = 0;
+    }
   });
+
   minHolder.addEventListener("scroll", () => {
-    //console.log(`Min\nx:${minHolder.scrollLeft}\ny: ${minHolder.scrollTop}`);
-    //minHolder.scrollTop = optionHeight * 50;
+    if (minListHeight < hourHolder.scrollTop) {
+      minHolder.scrollTop = 0;
+    }
   });
 }
 
@@ -269,7 +231,7 @@ function createMinOption(minList, i) {
 
   minOption.addEventListener("click", (event) => {
     minList.scrollTo(event.target.offsetWidth, event.target.offsetHeight);
-    
+
     document.querySelector(".right").style.visibility = "hidden";
     minSelected.textContent = event.target.textContent;
 
@@ -297,15 +259,6 @@ function initSelectedAlarmTime(element) {
   element.addEventListener("click", () => {
     element.style.display = "none";
     resetAlarmInput();
-
-    /* if (document.getElementById("min-list").style.display === "none") {
-      document.getElementById("min-list").style.display = "block";
-      document.querySelector(".right").style.display = "flex";
-    } 
-    else if (document.getElementById("hour-list").style.display === "none") {
-      document.getElementById("hour-list").style.display = "block";
-      document.querySelector(".left").style.display = "flex";
-    } */
   });
 }
 
@@ -351,6 +304,8 @@ function resetAlarmInput() {
   document.querySelector(".right").style.visibility = "visible";
   document.querySelector(".left").style.visibility = "visible";
   saveAlarmButton.style.display = "none";
+  document.getElementById("main-container").style.position = "static";
+  document.getElementById("alarm-list-container").style.marginTop = "0"
 }
 
 function saveAlarmAnimation() {
@@ -365,7 +320,6 @@ function checkAlarmInput() {
   let min = document.getElementById("alarm-min").textContent;
 
   if (hour === "" || min === "") {
-    console.log("funkar");
     alarmContainer.style.backgroundColor = "#BB7777";
     setTimeout(() => {
       alarmContainer.style.backgroundColor = "#E4F1E4";
@@ -385,7 +339,6 @@ function checkAlarmInput() {
 }
 
 function createAlarm(hour, min) {
-  console.log(`${hour}:${min}`);
   alarms.push(new Alarm(hour, min));
 
   setTimeout(() => {
@@ -530,18 +483,11 @@ function setTime() {
     const alarmCheck = `${hour}:${minute}`;
 
     if (checkAlarm(alarmCheck)) {
-      console.log("Alarm!");
       returnToDashboard();
       const alarmTimer = setInterval(hornAlarm, 1000);
       clockContainer.addEventListener("click", () => {
         clearInterval(alarmTimer);
         clockContainer.style.boxShadow = "initial";
-        console.log(
-          `Hour:\nx:${hourOption.scrollLeft}\ny: ${hourOption.scrollTop}`
-        );
-        console.log(
-          `Min:\ny:${minOption.scrollLeft}\ny: ${minOption.scrollTop}`
-        );
       });
     }
   }
