@@ -184,6 +184,7 @@ address {
   display: none;
   box-shadow: #d7ead7 inset 0 0 5vw;
   transition: 0.3s ease-in;
+  align-items: center;
 
   justify-content: center;
 }
